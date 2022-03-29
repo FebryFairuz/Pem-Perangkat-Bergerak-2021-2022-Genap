@@ -4,4 +4,4 @@ Academic Calendar 2022-2023 Genap
 Class of TI-20-PA (A1 and A2)
 
 ## Materi 1: On-Board Screen
-![alt text](https://github.com/FebryFairuz/Pem-Perangkat-Bergerak-2022-2023-Genap/blob/master/PROJECT/assets/Portal-IBIK.png?raw=true)
+![on board](https://github.com/FebryFairuz/Pem-Perangkat-Bergerak-2022-2023-Genap/blob/master/PROJECT/assets/Portal-IBIK.png?raw=true | width=100)
