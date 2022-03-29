@@ -1,0 +1,1 @@
+Kelas Reguler TI PA tahun akademik 2022-2023 Genap
