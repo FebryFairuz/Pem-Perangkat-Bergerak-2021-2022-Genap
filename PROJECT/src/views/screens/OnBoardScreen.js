@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import colors from '../../consts/colors'
 import LogoIbik from "../../assets/logo-ibik-white.jpeg";
-import { PrimaryButton } from '../components/ButtonComponent';
 
 const OnBoardScreen = ({ navigation }) => {
     return (
