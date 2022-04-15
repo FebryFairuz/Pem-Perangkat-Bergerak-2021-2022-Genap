@@ -14,7 +14,7 @@ const OnBoardScreen = ({ navigation }) => {
                 <Text style={styles.h3}>Institut Bisnis dan Informatika Bogor</Text>
             </View>
             <View style={styles.containerBtn}>
-                <TouchableOpacity activeOpacity={0.8} onPress={(e)=>navigation.navigate('Home')} >
+                <TouchableOpacity activeOpacity={0.8} onPress={(e)=>navigation.navigate('Main')} >
                     <View style={styles.btn} >
                         <Text style={styles.btnTitle}>Get Started</Text>
                     </View>
