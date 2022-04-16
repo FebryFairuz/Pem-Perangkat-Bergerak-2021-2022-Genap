@@ -12,7 +12,6 @@ export class MainComponent extends Component {
         profile: "Profile",
         attendance: "Attendance",
         score: "Score",
-        board: "BoardScreen",
       },
     };
   }
@@ -43,6 +42,7 @@ export class MainComponent extends Component {
           tabBarLabelStyle: { fontSize: 12, paddingBottom: 3 },
         })}
       >
+        
         <Tab.Screen name={this.state.navLabel.home} component={HomeScreen} />
         <Tab.Screen name={this.state.navLabel.attendance} component={AttendanceScreen} />
         <Tab.Screen name={this.state.navLabel.score} component={ScoreScreen} />

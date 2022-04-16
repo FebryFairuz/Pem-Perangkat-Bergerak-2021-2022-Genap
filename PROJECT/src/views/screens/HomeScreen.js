@@ -1,13 +1,11 @@
 import React from 'react'
-import { SafeAreaView, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 export function HomeScreen({navigation}) {
   return (
-    <SafeAreaView>
-        <View>
-            <Text>Home Screen</Text>
-        </View>
-    </SafeAreaView>
+    <View>
+        <Text>Hello </Text>
+    </View>
   )
 }
 
