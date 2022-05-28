@@ -1,11 +1,13 @@
 import React from 'react'
-import { Button, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import colors from '../../consts/colors'
 import LogoIbik from "../../assets/logo-ibik-white.jpeg";
+import { PrimaryButton } from '../components/ButtonComponent';
 
 const OnBoardScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar hidden={true} />
             <View style={styles.containerLogo}>
                 <Image source={LogoIbik} style={styles.imgLogo} />
             </View>
@@ -14,11 +16,10 @@ const OnBoardScreen = ({ navigation }) => {
                 <Text style={styles.h3}>Institut Bisnis dan Informatika Bogor</Text>
             </View>
             <View style={styles.containerBtn}>
-                <TouchableOpacity activeOpacity={0.8} onPress={(e)=>navigation.navigate('Main')} >
-                    <View style={styles.btn} >
-                        <Text style={styles.btnTitle}>Get Started</Text>
-                    </View>
-                </TouchableOpacity>
+                <PrimaryButton
+                    onPress={() => navigation.navigate('Main')}
+                    title="Get Started"
+                />
             </View>
         </SafeAreaView>
     )
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: colors.white
     },
-    containerBtn: { flex: 3, justifyContent: 'flex-end', paddingHorizontal:20 },
+    containerBtn: { flex: 3, justifyContent: 'flex-end', paddingHorizontal:20,paddingBottom:20 },
     btn:{
         backgroundColor:colors.primary,
         height:60,

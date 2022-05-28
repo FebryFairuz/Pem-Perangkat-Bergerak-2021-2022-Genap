@@ -1,4 +1,4 @@
 export {HomeScreen} from "./Home/HomeScreen"
-export {AttendanceScreen}  from "./AttendanceScreen"
+export {AttendanceScreen}  from "./Attendance/AttendanceScreen"
 export {ProfileScreen} from "./ProfileScreen"
-export {ScoreScreen} from "./ScoreScreen"
+export {ScoreScreen} from "./Score/ScoreScreen"

@@ -2,14 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import colors from "../../../../consts/colors";
+import FeedsData from "../../../../consts/FeedsData";
 
 export default function Feeds() {
-  const FeedsData = [
-    { id: 1, title: "Jadwal UTS 2022-2023 Genap", Desc: "bla bla bla bla bla bla bla bla bla bla bla bla bla . Read more" },
-    { id: 2, title: "Jadwal UAS 2022-2023 Genap", Desc: "bla bla bla bla bla bla bla bla bla bla bla bla bla . Read more" },
-    { id: 3, title: "Libur Semester Genap", Desc: "bla bla bla bla bla bla bla bla bla bla bla bla bla . Read more" },
-  ];
-
+  
   const CardBox = ({ item }) => {
     return (
       <View key={item.id} style={styles.card}>
@@ -40,7 +36,7 @@ export default function Feeds() {
           renderItem={({ item }) => <CardBox item={item} />}
           keyExtractor={(item) => item.id}
           numColumns={0}
-        />
+      />
     </View>
   );
 }

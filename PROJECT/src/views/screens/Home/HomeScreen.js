@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, ScrollView, HomeStyleheet, Text, View, Image } from 'react-native'
+import { SafeAreaView, ScrollView, HomeStyleheet, Text, View, Image, StatusBar } from 'react-native'
 import HomeStyle from './HomeStyle'
 import ProfileHead from './Widgets/ProfileHead'
 import CardGrade from './Widgets/CardGrade'
@@ -9,6 +9,7 @@ import Feeds from './Widgets/Feeds'
 export function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={HomeStyle.container}>
+      <StatusBar hidden={false} />
       <ScrollView style={{ paddingHorizontal: 20 }}>
 
         { /*HEAD PROFILE INFO*/}

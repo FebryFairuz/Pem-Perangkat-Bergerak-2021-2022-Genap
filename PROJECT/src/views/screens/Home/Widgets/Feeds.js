@@ -13,8 +13,8 @@ export default function Feeds() {
   const CardBox = (param) => {
     const item = param.data;
     return (
-          <View key={item.id} style={[HomeStyle.card, HomeStyle.cardFeeds]}>
-            <View style={{flexDirection:'row'}}>
+          <View key={item.id} style={[HomeStyle.card, styles.cardFeeds]}>
+            <View style={{flexDirection:'row',alignItems:'center'}}>
               <Image
                 style={{ width: 80, height: 80 }}
                 source={require("../../../../assets/logo-ibik-white.jpeg")}
@@ -39,3 +39,14 @@ export default function Feeds() {
       </View>
   );
 }
+
+const styles = StyleSheet.create({
+  cardFeeds:{
+    backgroundColor:colors.white,
+    borderWidth:1, 
+    borderColor:colors.purple,
+    padding:10,
+    height:120,
+    marginBottom:20
+  }
+})

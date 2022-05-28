@@ -3,9 +3,9 @@ const colors = {
     dark        : '#000',
     purple      : '#50185c',
     primary     : '#cf3d47',
-    secondary   : '#fedac5',
+    secondary   : '#fe9168',
     light       : '#e5e5e5',
-    grey        : '#e7e3e3'
+    grey        : '#8a8c8e'
 }
 
 export default colors;

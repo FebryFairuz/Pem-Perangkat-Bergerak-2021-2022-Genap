@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Portal Student IBIK Sample",
+    "githubUrl": "https://github.com/FebryFairuz/Pem-Perangkat-Bergerak-2022-2023-Genap"
   }
 }
