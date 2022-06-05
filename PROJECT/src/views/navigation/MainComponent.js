@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {HomeScreen,AttendanceScreen,ScoreScreen,ProfileScreen} from '../screens';
+import {AttendanceScreen,ScoreScreen,ProfileScreen} from '../screens';
+import HomeScreen from '../screens/Home/HomeScreen';
 import colors from '../../consts/colors';
 
 export default class MainComponent extends Component {

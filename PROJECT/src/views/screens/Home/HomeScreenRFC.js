@@ -1,21 +1,14 @@
+import React from 'react'
 import { SafeAreaView, ScrollView, HomeStyleheet, Text, View, Image, StatusBar } from 'react-native'
 import HomeStyle from './HomeStyle'
 import ProfileHead from './Widgets/ProfileHead'
 import CardGrade from './Widgets/CardGrade'
 import ListCourse from './Widgets/ListCourse'
 import Feeds from './Widgets/Feeds'
-import React, { Component } from 'react'
 
-export class HomeScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navigation : this.props.navigation
-    };
-  }
-  render() {
-    return (
-      <SafeAreaView style={HomeStyle.container}>
+export function HomeScreenRFC({ navigation }) {
+  return (
+    <SafeAreaView style={HomeStyle.container}>
       <StatusBar hidden={false} />
       <ScrollView style={{ paddingHorizontal: 20 }}>
 
@@ -55,8 +48,8 @@ export class HomeScreen extends Component {
 
       </ScrollView>
     </SafeAreaView>
-    )
-  }
+  )
 }
 
-export default HomeScreen
+
+export default HomeScreenRFC;
