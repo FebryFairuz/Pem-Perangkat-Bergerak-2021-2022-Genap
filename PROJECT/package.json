@@ -16,6 +16,7 @@
     "@react-navigation/stack": "^6.1.1",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
+    "expo-updates": "~0.11.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
@@ -29,5 +30,19 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "name": "IBIK Portal Academic",
+    "icon": "./assets/icon.png",
+    "version": "1.0.0",
+    "slug": "ibik-portal",
+    "ios": {
+      "bundleIdentifier": "com.ibik.portal.academic",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.ibik.portal.academic",
+      "versionCode": 1
+    }
+  }
 }

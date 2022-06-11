@@ -1,5 +1,5 @@
 import { Image, Text, View, HomeStyleheet } from 'react-native'
-import Avatar from '../../../../assets/avatar.jpeg'
+import Avatar from '../../../../assets/ava-boy.png'
 import account from '../../../../consts/account';
 import HomeStyle from '../HomeStyle';
 
@@ -17,7 +17,7 @@ const ProfileHead = () =>{
             <Text style={{ fontSize: 18, marginTop: 5, color: "black" }} >{account.studentid}</Text>
           </View>
           <View style={{flex:1,justifyContent:'flex-start', alignItems:'flex-end'}}>
-            <Image source={Avatar} style={{ height: 50, width: 50, borderRadius: 25, backgroundColor: 'purple', borderColor: 'purple'}} />
+            <Image source={Avatar} style={{ height: 45, width: 45, borderRadius: 25, backgroundColor: 'white',borderWidth:1, borderColor: 'purple'}} resizeMode="contain" />
           </View>
         </View>
       </View>

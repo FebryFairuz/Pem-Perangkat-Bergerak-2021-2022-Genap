@@ -17,7 +17,7 @@ export class HomeScreen extends Component {
     return (
       <SafeAreaView style={HomeStyle.container}>
       <StatusBar hidden={false} />
-      <ScrollView style={{ paddingHorizontal: 20 }}>
+      <ScrollView style={{ paddingHorizontal: 20 }} showsVerticalScrollIndicator={false} >
 
         { /*HEAD PROFILE INFO*/}
         <ProfileHead />

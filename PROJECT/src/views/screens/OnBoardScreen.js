@@ -17,7 +17,7 @@ const OnBoardScreen = ({ navigation }) => {
             </View>
             <View style={styles.containerBtn}>
                 <PrimaryButton
-                    onPress={() => navigation.navigate('Main')}
+                    onPress={() => navigation.navigate('AuthentificationsScreen')}
                     title="Get Started"
                 />
             </View>
