@@ -4,7 +4,9 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  Alert
+  Alert,
+  Modal,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -13,8 +15,9 @@ import { PrimaryButton } from "../../components/ButtonComponent";
 import account from "../../../consts/account";
 
 export default function SignIn(props) {
-  const [msgError, setMsgError] = useState("");
-  const [errorMsg, setErrorMsg] = useState({email:"",password:""});
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [errorMsg, setErrorMsg] = useState({ email: "", password: "" });
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -30,29 +33,64 @@ export default function SignIn(props) {
     });
   };
 
-  const handlerPostSignIn = () =>{
+  const handlerPostSignIn = () => {
     //validation
-    if(!data.email){
-        setErrorMsg({...errorMsg, email:"Required field"})
-    }else if(!data.password){
-        setErrorMsg({...errorMsg, password:"Required field"})
-    }else if(!data.email && !data.password){
-        setErrorMsg({email:"Required field", password:"Required field"})
-    }else{
-        setErrorMsg({email:"", password:""})
-        if((data.email === account.email) && (data.password === account.password) ){
-            props.navigation.navigate('Main');
-        }else{
-            Alert.alert(
-                "Invalid Grant",
-                "Username or password doesn't match on system.",
-                [
-                  { text: "Close", onPress: () => setData({email:"",password:""}) }
-                ]
-            );
-        }
+    if (!data.email) {
+      setErrorMsg({ ...errorMsg, email: "Required field" });
+    } else if (!data.password) {
+      setErrorMsg({ ...errorMsg, password: "Required field" });
+    } else if (!data.email && !data.password) {
+      setErrorMsg({ email: "Required field", password: "Required field" });
+    } else {
+      setErrorMsg({ email: "", password: "" });
+      if (data.email === account.email && data.password === account.password) {
+        props.navigation.navigate("Main");
+      } else {
+        Alert.alert(
+          "Invalid Grant",
+          "Username or password doesn't match on system.",
+          [
+            {
+              text: "Close",
+              onPress: () => setData({ email: "", password: "" }),
+            },
+          ]
+        );
+      }
     }
-  }
+  };
+
+  const ModalView = () => {
+    return (
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>
+              Please, contact IT Department to reset your password
+            </Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Ok got it</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  const openModal = (value) => {
+    //alert("hi");
+    setModalVisible(value);
+  };
 
   return (
     <View style={{ padding: 40 }}>
@@ -73,8 +111,8 @@ export default function SignIn(props) {
             placeholder={"Enter your mail address"}
             keyboardType="email-address"
             autoCorrect={false}
-            autoCapitalize='none'
-            onChangeText={text => setData({ ...data, email: text })}
+            autoCapitalize="none"
+            onChangeText={(text) => setData({ ...data, email: text })}
             defaultValue={data.email}
           />
           <Text style={styles.textError}>{errorMsg.email}</Text>
@@ -88,7 +126,7 @@ export default function SignIn(props) {
               secureTextEntry={data.secureTextEntry}
               placeholder={"Enter your password"}
               autoCorrect={false}
-              onChangeText={text => setData({ ...data, password: text })}
+              onChangeText={(text) => setData({ ...data, password: text })}
               defaultValue={data.password}
             />
             <TouchableOpacity
@@ -97,7 +135,7 @@ export default function SignIn(props) {
             >
               <Ionicons
                 name={data.secureTextEntry ? "eye" : "eye-off"}
-                style={{fontSize:20}}
+                style={{ fontSize: 20 }}
               />
             </TouchableOpacity>
           </View>
@@ -105,15 +143,32 @@ export default function SignIn(props) {
         </View>
 
         <View style={{ alignItems: "flex-end" }}>
-          <Text style={{ color: colors.purple, fontWeight: "bold" }}>
-            Forgot Password ?
-          </Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={(e) => openModal(true)}
+          >
+            <Text style={{ color: colors.purple, fontWeight: "bold" }}>
+              Forgot Password ?
+            </Text>
+          </TouchableOpacity>
         </View>
 
-        <View style={{flex: 3, justifyContent: 'flex-end', paddingHorizontal:20,marginTop:45}}>
-            <PrimaryButton title={"Sign In"} onPress={() => handlerPostSignIn() } />
+        <View
+          style={{
+            flex: 3,
+            justifyContent: "flex-end",
+            paddingHorizontal: 20,
+            marginTop: 45,
+          }}
+        >
+          <PrimaryButton
+            title={"Sign In"}
+            onPress={() => handlerPostSignIn()}
+          />
         </View>
       </View>
+
+      <ModalView />
     </View>
   );
 }
@@ -136,12 +191,55 @@ const styles = StyleSheet.create({
     color: "#05375a",
     borderBottomWidth: 1,
     borderBottomColor: colors.purple,
-    textTransform:'lowercase',
-    fontSize:18
+    textTransform: "lowercase",
+    fontSize: 18,
   },
   textError: {
     color: colors.primary,
     marginTop: 5,
     fontStyle: "italic",
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    marginTop:20
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
   },
 });

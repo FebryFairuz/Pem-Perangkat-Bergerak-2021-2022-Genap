@@ -9,7 +9,7 @@ percentSemester = parseInt(percentSemester);
 
 const CardGrade = () => {
   return (
-    <View style={HomeStyle.row}>
+    <View style={{...HomeStyle.row,zIndex:1,elevation:1}}>
       <View style={HomeStyle.card}>
         {/* Title*/}
         <Text style={HomeStyle.cardTitle}>Current Grade</Text>
