@@ -7,7 +7,6 @@ import colors from "../../../../consts/colors";
 import HomeStyle from "../HomeStyle";
 
 const ProfileHead = ({navigation}) => {
-  console.log(navigation);
   let usernameArr = account.fullname.split(" ");
   let username = usernameArr[0];
 
