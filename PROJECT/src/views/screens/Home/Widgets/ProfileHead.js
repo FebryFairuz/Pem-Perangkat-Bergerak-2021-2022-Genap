@@ -6,7 +6,8 @@ import account from "../../../../consts/account";
 import colors from "../../../../consts/colors";
 import HomeStyle from "../HomeStyle";
 
-const ProfileHead = () => {
+const ProfileHead = ({navigation}) => {
+  console.log(navigation);
   let usernameArr = account.fullname.split(" ");
   let username = usernameArr[0];
 
@@ -69,7 +70,7 @@ const ProfileHead = () => {
                 />
                 <Menu.Item onPress={() => {}} title="My Profile" />
                 <Divider />
-                <Menu.Item onPress={() => {}} title="Logout" />
+                <Menu.Item onPress={(e) => navigation.navigate("AuthentificationsScreen")} title="Logout" />
               </Menu>
             </View>
           </Provider>

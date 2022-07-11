@@ -20,7 +20,7 @@ export class HomeScreen extends Component {
       <ScrollView style={{ paddingHorizontal: 20 }} showsVerticalScrollIndicator={false} >
 
         { /*HEAD PROFILE INFO*/}
-        <ProfileHead />
+        <ProfileHead navigation={this.state.navigation} />
         { /*END HEAD PROFILE INFO*/}
 
         { /*Card Current Grade*/}
